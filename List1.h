@@ -14,12 +14,13 @@ class List{
 		Node* head;
 		Node* tail;
 		List();
-		List(List ob);
+		List(const List& ob);
 		List(List&& ob);
 		~List();
-		void deleteNode;
+		friend bool proverka(List& ob);
+		void deleteNode(Node* a);
 		bool isSame(int x);
 		List& operator +=(int x);
-		friend std::ostream &operator <<(const std::ostream& out, List& ob);
-		friend List& operator |(List& ob);
+		friend std::ostream &operator <<(std::ostream& out, List& ob);
+		friend List& operator |(List& ob, List& ob1);
 };
