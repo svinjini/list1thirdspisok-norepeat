@@ -119,20 +119,51 @@ bool List::isSame(int x){
 			}
 		return false;
 	}
-void SORT(List& ob){
-		Node* current=ob.
-		while((current->next!=tail)&&(current->value>current->next->value)){
-						k=current->next->value;
-						current->next->value=current->value;
-						current->value=k;
-						current=current->next;
-					}
-	}
 List& operator |(List& ob, List& ob1){
-		int x=1;
+		int x;
+		int k;
 		List::Node* temp;
 		List* listok=new List();
-		
+		List::Node* current=ob.head;
+		List::Node* current1;
+	    listok->head->value=current->value;
+	    listok->head->next=listok->tail;
+	    current=current->next;
+	    while(current!=nullptr){
+			k=current->value;
+				if(List::isSame(k)!=true){
+					temp=listok->head;
+					listok->head=new List::Node();
+					listok->head->next=temp;
+					listok->head->value=current->value;
+					current1=listok->head;
+					while((current1->next!=nullptr)&&(current1->value>current1->next->value)){
+							x=current1->next->value;
+							current1->next->value=current1->value;
+							current1->value=x;
+							current1=current1->next;
+						}
+				}
+			}
+			current=ob1.head;
+			listok->head->value=current->value;
+			listok->head->next=listok->tail;
+			k=current->value;
+			while(current!=nullptr){
+				if(List::isSame(k)!=true){
+					temp=listok->head;
+					listok->head=new List::Node();
+					listok->head->next=temp;
+					listok->head->value=current->value;
+					current1=listok->head;
+					while((current1->next!=nullptr)&&(current1->value>current1->next->value)){
+							x=current1->next->value;
+							current1->next->value=current1->value;
+							current1->value=x;
+							current1=current1->next;
+						}
+				}
+			}
 		return *listok;
 	}
 List& List::operator +=(int x){
