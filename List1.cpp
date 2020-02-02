@@ -75,6 +75,17 @@ List& List::operator =(List& obj){
 List::~List(){
 		deleteList();
 	}
+int& List::operator [](int index){
+		Node* current=head;
+		if(index>count){
+				std::cout<<"ERROR"<<std::endl;
+				exit(0);
+			} 
+		for(int i=0; i<index;++i){
+				current=current->next;
+			}
+		return current->value;
+	}
 bool proverka(List& ob){
 		if(ob.head==nullptr){
 				return false;
@@ -108,7 +119,22 @@ bool List::isSame(int x){
 			}
 		return false;
 	}
-List& operator |(List& ob, List& ob1){}
+void SORT(List& ob){
+		Node* current=ob.
+		while((current->next!=tail)&&(current->value>current->next->value)){
+						k=current->next->value;
+						current->next->value=current->value;
+						current->value=k;
+						current=current->next;
+					}
+	}
+List& operator |(List& ob, List& ob1){
+		int x=1;
+		List::Node* temp;
+		List* listok=new List();
+		
+		return *listok;
+	}
 List& List::operator +=(int x){
 		Node* temp;
 		int k;
@@ -139,7 +165,7 @@ List& List::operator +=(int x){
 	}
 std::ostream & operator <<(std::ostream& out, List& ob){
 		List::Node* temp=ob.head;
-		while(temp!=ob.tail){
+		while(temp!=NULL){
 			out<<temp->value<<std::endl;
 			temp=temp->next;
 		}

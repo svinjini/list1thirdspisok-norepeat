@@ -18,6 +18,7 @@ class List{
 		List(const List& ob);
 		List(List&& ob);
 		~List();
+		int &operator[](int index);
 		void deleteList();
 		List& getCopy(const List& obj);
 		List& operator =(List& obj);
